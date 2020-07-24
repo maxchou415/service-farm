@@ -1,6 +1,6 @@
 module.exports = {
   app: {
-    name: 'airloft_api_v2'
+    name: 'service_farm'
   },
   database: {
     username: process.env.DB_USER,
@@ -15,13 +15,13 @@ module.exports = {
       min: 0,
       acquire: 30000,
       idle: 10000
+    },
+    pagination: {
+      limit: process.env.DB_PAGINATION_LIMIT || 10
     }
   },
   secret: {
     password: '',
     token: ''
-  },
-  gcp: {
-    geocodingApiKey: process.env.GCP_GEOCODING_API_KEY
   }
 }

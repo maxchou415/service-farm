@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv-flow').config()
 require('module-alias/register')
 
 const Koa = require('koa')

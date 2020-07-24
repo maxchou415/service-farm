@@ -2,42 +2,24 @@ const config = require('config')
 
 module.exports = {
   development: {
-    database: config.get('database.name'),
     username: config.get('database.username'),
     password: config.get('database.password'),
+    database: config.get('database.name'),
     host: config.get('database.host'),
-    port: config.get('database.port'),
-    dialect: config.get('database.dialect'),
-    pool: config.get('database.pool'),
-    define: {
-      timestamps: true,
-      paranoid: true
-    }
+    dialect: 'postgres'
   },
   staging: {
-    database: config.get('database.name'),
     username: config.get('database.username'),
     password: config.get('database.password'),
+    database: config.get('database.name'),
     host: config.get('database.host'),
-    port: config.get('database.port'),
-    dialect: config.get('database.dialect'),
-    pool: config.get('database.pool'),
-    define: {
-      timestamps: true,
-      paranoid: true
-    }
+    dialect: 'postgres'
   },
   production: {
-    database: config.get('database.name'),
     username: config.get('database.username'),
     password: config.get('database.password'),
+    database: config.get('database.name'),
     host: config.get('database.host'),
-    port: config.get('database.port'),
-    dialect: config.get('database.dialect'),
-    pool: config.get('database.pool'),
-    define: {
-      timestamps: true,
-      paranoid: true
-    }
+    dialect: 'postgres'
   }
 }
