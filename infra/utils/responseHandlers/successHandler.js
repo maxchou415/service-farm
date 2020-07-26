@@ -1,4 +1,4 @@
-module.exports = async (ctx = {}, statusCode = 200, payload = {}) => {
+module.exports = (ctx = {}, statusCode = 200, payload = {}) => {
   if (Object.keys(ctx).length === 0) {
     throw new Error('ctx is required')
   }
