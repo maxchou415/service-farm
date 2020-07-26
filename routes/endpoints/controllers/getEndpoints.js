@@ -4,12 +4,21 @@ const errorMessageMap = require('../../../infra/utils/responseHandlers/errorMess
 const { getEndpoints } = require('../services')
 
 module.exports = async (ctx) => {
-  let data
+  let { limit, page } = ctx.query
+
+  let endpoints, pagination
   try {
-    data = await getEndpoints({ limit: 10 })
+    ({ endpoints, pagination } = await getEndpoints({ limit, page }))
   } catch (error) {
     ctx.throw(errorMessageMap.FETCH_ENDPOINTS_FAILURE)
     throw error
   }
-  responseHandler.success(ctx, 200, data)
+  const response = {
+    endpoints: endpoints.rows,
+    pagination: {
+      ...pagination,
+      total: endpoints.count
+    }
+  }
+  responseHandler.success(ctx, 200, response)
 }
