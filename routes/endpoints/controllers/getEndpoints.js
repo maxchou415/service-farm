@@ -1,3 +1,6 @@
+const responseHandler = require('@utils/responseHandlers')
+const errorMessageMap = require('../../../infra/utils/responseHandlers/errorMessageMap')
+
 const { getEndpoints } = require('../services')
 
 module.exports = async (ctx) => {
@@ -5,9 +8,8 @@ module.exports = async (ctx) => {
   try {
     data = await getEndpoints({ limit: 10 })
   } catch (error) {
+    ctx.throw(errorMessageMap.FETCH_ENDPOINTS_FAILURE)
     throw error
   }
-  ctx.body = {
-    data
-  }
+  responseHandler.success(ctx, 200, data)
 }
