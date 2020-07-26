@@ -27,7 +27,7 @@ app.use(async (ctx, next) => {
 })
 
 // Error handler
-app.use(require('./infra/utils/responseHandlers/errorHandler'))
+app.use(require('./infra/utils/responseHandlers').error)
 
 // routes
 app.use(api.routes())
