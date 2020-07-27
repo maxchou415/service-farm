@@ -11,7 +11,7 @@ module.exports = async (ctx) => {
     ({ endpoints, pagination } = await getEndpoints({ limit, page }))
   } catch (error) {
     ctx.throw(errorMessageMap.FETCH_ENDPOINTS_FAILURE)
-    throw error
+    return
   }
   const response = {
     endpoints: endpoints.rows,
